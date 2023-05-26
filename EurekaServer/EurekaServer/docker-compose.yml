@@ -1,0 +1,25 @@
+version: "3"
+services:
+  API-GATEWAY:
+    image: api_gateway
+    networks:
+      - microservices
+    depends_on:
+      - Eureka-Server
+
+  JWT-SERVICE:
+    image: jwt_serv
+    networks:
+      - microservices
+    depends_on:
+      - Eureka-Server
+
+  Eureka-Server:
+    image: eureka_serv
+    networks:
+      - microservices
+
+networks:
+  microservices:
+
+
